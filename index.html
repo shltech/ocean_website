@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEYOND — Deep Ocean Descent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CONTINUOUS UNDERWATER ECOSYSTEM (CREATURES, KELP, BUBBLES, PARTICLES) -->
+    <canvas id="oceanCanvas"></canvas>
+
+    <!-- PROGRESSIVE DEPTH DARKNESS & LARGE CONTINUOUS FLASHLIGHT BEAM -->
+    <div class="abyss-atmosphere" id="abyssAtmosphere"></div>
+
+    <!-- MINIMAL DEPTH GAUGE (LEFT EDGE) -->
+    <div class="depth-rail" aria-hidden="true">
+        <span class="rail-label">0M</span>
+        <div class="rail-track">
+            <div class="rail-fill" id="railFill"></div>
+            <div class="rail-indicator" id="railIndicator">0 M</div>
+        </div>
+        <span class="rail-label">11,000M</span>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <a href="#home" class="logo">BEYOND<span>.</span></a>
+        <div class="nav-links">
+            <a href="#sunlight">Sunlight</a>
+            <a href="#twilight">Twilight</a>
+            <a href="#midnight">Midnight</a>
+            <a href="#abyss">Abyss</a>
+            <a href="#hadal">Trench</a>
+            <a href="#quiz">Quiz</a>
+        </div>
+        <span class="nav-depth-readout" id="navDepthReadout">0 M · SURFACE</span>
+    </nav>
+
+    <!-- 00. SURFACE HERO -->
+    <section class="panel hero" id="home">
+        <div class="parallax-bg hero-image" data-speed="0.28"></div>
+        <div class="surface-rays"></div>
+
+        <div class="panel-inner hero-inner">
+            <p class="eyebrow">0 METERS · OCEAN SURFACE</p>
+            <h1>
+                ENTER<br>
+                THE <span>UNKNOWN.</span>
+            </h1>
+            <div class="hero-footer-row">
+                <p class="hero-description">
+                    Scroll down to descend into the ocean. Move your cursor to shine your dive light into the water as sunlight fades away.
+                </p>
+                <button class="editorial-btn" id="diveButton">
+                    DIVE BELOW SURFACE ↓
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01. SUNLIGHT ZONE (0 - 200M) -->
+    <section class="panel ocean-layer reveal" id="sunlight">
+        <div class="parallax-bg layer-bg" data-speed="0.18" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1800');"></div>
+
+        <div class="panel-inner split-layout">
+            <div class="layer-text">
+                <p class="eyebrow">01 / 0 — 200 METERS</p>
+                <h2>THE <span>SUNLIGHT</span> ZONE.</h2>
+                <p class="body-copy">
+                    Warm, clear water illuminated by the sun. Sunlight powers coral reefs and ocean plants, supporting almost 90% of all marine life.
+                </p>
+                <div class="quick-facts">
+                    <div>
+                        <small>LIGHT</small>
+                        <strong>Full Sunlight</strong>
+                    </div>
+                    <div>
+                        <small>TEMPERATURE</small>
+                        <strong>20°C — 25°C</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creature-showcase">
+                <article class="creature-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900" alt="Sea Turtle">
+                    <div class="creature-info">
+                        <span>0 — 200M · REPTILE</span>
+                        <h3>Green Sea Turtle</h3>
+                        <p>Glides through warm sunlit currents and surfaces periodically to breathe.</p>
+                    </div>
+                </article>
+                <article class="creature-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=900" alt="Dolphin">
+                    <div class="creature-info">
+                        <span>0 — 200M · MAMMAL</span>
+                        <h3>Bottlenose Dolphin</h3>
+                        <p>Navigates open coastal waters using natural sonar clicks and whistles.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. TWILIGHT ZONE (200 - 1,000M) -->
+    <section class="panel ocean-layer reveal" id="twilight">
+        <div class="parallax-bg layer-bg" data-speed="0.22" style="background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1800');"></div>
+
+        <div class="panel-inner split-layout">
+            <div class="creature-showcase single-feature">
+                <article class="creature-card large-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?w=1100" alt="Deep-Sea Jellyfish">
+                    <div class="creature-info">
+                        <span>200 — 1,000M · DRIFTER</span>
+                        <h3>Deep-Sea Jellyfish</h3>
+                        <p>Drifts effortlessly through fading blue water, pulsing with subtle bioluminescent light when disturbed.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="layer-text">
+                <p class="eyebrow">02 / 200 — 1,000 METERS</p>
+                <h2>THE <span>TWILIGHT</span> ZONE.</h2>
+                <p class="body-copy">
+                    Sunlight weakens into a deep indigo haze. Plants can no longer survive here, and sea creatures rely on large eyes and faint internal glows to navigate the dim water.
+                </p>
+                <div class="quick-facts">
+                    <div>
+                        <small>LIGHT</small>
+                        <strong>Fading Indigo</strong>
+                    </div>
+                    <div>
+                        <small>TEMPERATURE</small>
+                        <strong>4°C — 10°C</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. MIDNIGHT ZONE (1,000 - 4,000M) -->
+    <section class="panel ocean-layer reveal" id="midnight">
+        <div class="parallax-bg layer-bg" data-speed="0.22" style="background-image: url('https://images.unsplash.com/photo-1530053969600-caed2596d242?w=1800');"></div>
+
+        <div class="panel-inner split-layout">
+            <div class="layer-text">
+                <p class="eyebrow">03 / 1,000 — 4,000 METERS</p>
+                <h2>THE <span>MIDNIGHT</span> ZONE.</h2>
+                <p class="body-copy">
+                    Sunlight vanishes completely. Sweep your flashlight beam across the darkness to reveal the creatures that generate their own light in the deep.
+                </p>
+                <div class="quick-facts">
+                    <div>
+                        <small>LIGHT</small>
+                        <strong>Bioluminescence Only</strong>
+                    </div>
+                    <div>
+                        <small>PRESSURE</small>
+                        <strong>Up to 400 ATM</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creature-showcase">
+                <article class="creature-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=900" alt="Giant Squid">
+                    <div class="creature-info">
+                        <span>1,000 — 4,000M · HUNTER</span>
+                        <h3>Giant Squid</h3>
+                        <p>Uses dinner-plate-sized eyes to detect faint flashes of light in the pitch black.</p>
+                    </div>
+                </article>
+                <article class="creature-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1551244072-5d12893278ab?w=900" alt="Bioluminescent Organism">
+                    <div class="creature-info">
+                        <span>1,000 — 4,000M · LIVING LIGHT</span>
+                        <h3>Anglerfish</h3>
+                        <p>Suspends a glowing lure in front of its jaws to attract prey out of the dark.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. ABYSSAL ZONE (4,000 - 6,000M) -->
+    <section class="panel ocean-layer reveal" id="abyss">
+        <div class="panel-inner split-layout">
+            <div class="creature-showcase single-feature">
+                <article class="creature-card large-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?w=1100" alt="Abyssal Octopus">
+                    <div class="creature-info">
+                        <span>4,000 — 6,000M · ABYSSAL FLOOR</span>
+                        <h3>Dumbo Octopus</h3>
+                        <p>Hovers just above the freezing seafloor, gliding calmly through crushing water pressure.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="layer-text">
+                <p class="eyebrow">04 / 4,000 — 6,000 METERS</p>
+                <h2>THE <span>ABYSSAL</span> ZONE.</h2>
+                <p class="body-copy">
+                    Near-freezing water and immense pressure cover the vast ocean plains. Life moves slowly here, surviving on tiny particles of organic debris drifting down from above like snow.
+                </p>
+                <div class="quick-facts">
+                    <div>
+                        <small>PRESSURE</small>
+                        <strong>400x — 600x Surface</strong>
+                    </div>
+                    <div>
+                        <small>TEMPERATURE</small>
+                        <strong>1°C — 2°C</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. HADAL TRENCH (6,000 - 11,000M) -->
+    <section class="panel ocean-layer reveal" id="hadal">
+        <div class="panel-inner split-layout">
+            <div class="layer-text">
+                <p class="eyebrow">05 / 6,000 — 11,000 METERS</p>
+                <h2>THE <span>HADAL</span> TRENCH.</h2>
+                <p class="body-copy">
+                    The deepest canyons on Earth, plunging nearly 11 kilometers below the waves. Only specially adapted organisms can withstand the weight of the entire ocean above.
+                </p>
+
+                <div class="slider-wrapper">
+                    <div class="slider-meta">
+                        <span>DEPTH REFERENCE</span>
+                        <strong id="depthNumber">11,000 m</strong>
+                    </div>
+                    <input type="range" min="0" max="11000" step="100" value="11000" id="depthSlider">
+                    <div class="slider-summary" id="sliderSummary">
+                        <strong>Hadal Zone:</strong> Crushing pressure (1,100x surface) — Home of the Hadal Snailfish.
+                    </div>
+                </div>
+            </div>
+
+            <div class="creature-showcase single-feature">
+                <article class="creature-card large-card illuminable">
+                    <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?w=1100" alt="Hadal Snailfish">
+                    <div class="creature-info">
+                        <span>8,000M+ · DEEPEST FISH</span>
+                        <h3>Hadal Snailfish</h3>
+                        <p>Built with soft, flexible bones and gel-like tissue so extreme pressure cannot crush it.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. QUIZ (PRESERVED EXACTLY AS DESIGNED) -->
+    <section class="panel quiz-section reveal" id="quiz">
+        <div class="panel-inner center-layout">
+            <p class="eyebrow">06 / TEST YOUR KNOWLEDGE</p>
+            <h2>HOW MUCH DID YOU DISCOVER?</h2>
+
+            <div class="quiz-box">
+                <p id="questionNumber">QUESTION 01 / 04</p>
+                <h3 id="question">Loading question...</h3>
+                <div class="answers" id="answers"></div>
+                <p id="quizFeedback"></p>
+                <button id="nextQuestion" class="next-button" disabled>
+                    NEXT QUESTION →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
